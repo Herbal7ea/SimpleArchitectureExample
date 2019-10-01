@@ -1,0 +1,39 @@
+{
+  "transactions": [
+    {
+      "person_id": 2,
+      "amount": 1.0,
+      "date": "2019-01-26T00:00:00+09:00",
+      "description": "In class",
+      "id": 21
+    },
+    {
+      "person_id": 2,
+      "amount": 2.0,
+      "date": "2019-01-03T17:30:31Z",
+      "description": "In the lunch line",
+      "id": 22
+    },
+    {
+      "person_id": 2,
+      "amount": 3.0,
+      "date": "2019-01-04T17:30:31Z",
+      "description": "After school",
+      "id": 23
+    },
+    {
+      "person_id": 2,
+      "amount": 4.0,
+      "date": "2019-01-05T17:30:31Z",
+      "description": "Before Lunch",
+      "id": 24
+    },
+    {
+      "person_id": 2,
+      "amount": 5.0,
+      "date": "2019-01-06T17:30:31Z",
+      "description": "Just gave me the money",
+      "id": 25
+    }
+  ]
+}

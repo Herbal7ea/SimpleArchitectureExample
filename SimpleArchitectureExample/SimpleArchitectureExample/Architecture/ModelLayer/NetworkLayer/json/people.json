@@ -1,0 +1,28 @@
+{
+  "people": [
+    {
+      "id": 1,
+      "nickname": "Pete",
+      "class": "Math",
+      "currency": "USD",
+      "current_balance": 1.52,
+      "wimpLevel": 3,
+    },
+    {
+      "id": 2,
+      "nickname": "P$",
+      "class": "Science",
+      "currency": "JPY",
+      "current_balance": 10.25,
+      "wimpLevel": 8,
+    },
+    {
+      "id": 3,
+      "nickname": "MJ",
+      "class": "Recess",
+      "currency": "JPY",
+      "current_balance": 0.0,
+      "wimpLevel": 0,
+    }
+  ]
+}
