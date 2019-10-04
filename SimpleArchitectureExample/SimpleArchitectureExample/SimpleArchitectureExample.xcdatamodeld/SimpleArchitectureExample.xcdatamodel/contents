@@ -7,6 +7,12 @@
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="nickname" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Posting" representedClassName="Posting" syncable="YES">
+        <attribute name="body" attributeType="String" syncable="YES"/>
+        <attribute name="postingId" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="title" attributeType="String" syncable="YES"/>
+        <attribute name="userId" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
     <entity name="Transaction" representedClassName="Transaction" syncable="YES">
         <attribute name="amount" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="date" attributeType="String" syncable="YES"/>
@@ -17,5 +23,6 @@
     <elements>
         <element name="Person" positionX="-63" positionY="-18" width="128" height="120"/>
         <element name="Transaction" positionX="-54" positionY="36" width="128" height="120"/>
+        <element name="Posting" positionX="-54" positionY="45" width="128" height="105"/>
     </elements>
 </model>

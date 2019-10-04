@@ -3,6 +3,8 @@ import Swifter
 
 typealias NetworkResultClosure<T> = (Result<T, NetworkError>)-> Void
 
+//https://jsonplaceholder.typicode.com/posts
+
 class MockNetworkInteraction: NetworkInteractor {
     static var shared = MockNetworkInteraction()
     
@@ -20,7 +22,8 @@ class MockNetworkInteraction: NetworkInteractor {
 }
 
 // MARK: - Swifter Specific
-private let defaultLocalhost = URL(string: "http://127.0.0.1:8080")!
+private let addressIPv4 = "127.0.0.1"
+private let defaultLocalhost = URL(string: "http://\(addressIPv4):8080")!
 
 private let server = HttpServer()
 
@@ -30,18 +33,43 @@ private extension JsonFile {
 
 extension MockNetworkInteraction {
     private func setupServer() {
+        
+        server["/postings"] = { _ in .ok(.json(self.postingsJson)) }
+        
         server["/people"] = { _ in .ok(.json(self.personsJson)) }
         server["/transactions/1"] = { _ in .ok(.json(self.transactions1)) }
         server["/transactions/2"] = { _ in .ok(.json(self.transactions2)) }
         server["/transactions/3"] = { _ in .ok(.json(self.transactions3)) }
         
-        server.listenAddressIPv4 = "127.0.0.1"
+        
+        server.listenAddressIPv4 = addressIPv4
         try! server.start(forceIPv4: true)
     }
 }
 
 // Mark - NetworkInteractor Methods
 extension MockNetworkInteraction {
+    
+    func loadPostings(finished: @escaping PostingsResultClosure) {
+        DispatchQueue.global().async {
+            sleep(2) //faking network delay
+            
+            self.loadJson(PostingsResultWrapper.self, url: JsonFile.postings.url) { result in
+                //I can force ignore the catch because this is a mock network layer
+                let postings = try! result.get().postings
+                
+                //URLSession by default is on a background thread
+                //Since this layer was the one do depart, it's responsible to join main thread again
+                //do all conversion work on background thread, return results on main thread
+                //sometimes additional work is done in the Model layer (translation, conversion, CoreData stuff, etc.),
+                //then it's permisible to stay on background thread, and join 1 layer up
+                DispatchQueue.main.async {
+                    finished(.success(postings))
+                }
+            }
+        }
+    }
+    
     func loadPersons(finished: @escaping PersonsResultClosure) {
         DispatchQueue.global().async {
             
@@ -95,6 +123,12 @@ extension MockNetworkInteraction {
     private var transactions3: [String: Any] {
         return loadJsonFromFile(fileName: JsonFile.transaction3.rawValue)
     }
+    
+    private var postingsJson: [String: Any] {
+        return loadJsonFromFile(fileName: JsonFile.postings.rawValue)
+    }
+    
+    
     
     
     private func loadJsonFromFile(type: JsonFile) -> [String: Any] {

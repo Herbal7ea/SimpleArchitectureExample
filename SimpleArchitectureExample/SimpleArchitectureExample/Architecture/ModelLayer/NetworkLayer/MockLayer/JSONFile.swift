@@ -7,5 +7,6 @@ enum JsonFile: String {
     case people,
     transaction1 = "transactions_1",
     transaction2 = "transactions_2",
-    transaction3 = "transactions_3"
+    transaction3 = "transactions_3",
+    postings
 }

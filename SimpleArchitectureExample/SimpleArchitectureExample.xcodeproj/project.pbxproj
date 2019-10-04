@@ -57,6 +57,10 @@
 		09E86FDB22C39693002DBCCB /* Person+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E86FD722C39693002DBCCB /* Person+CoreDataClass.swift */; };
 		09E86FDC22C39693002DBCCB /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E86FD822C39693002DBCCB /* Transaction+CoreDataProperties.swift */; };
 		09E86FDD22C39693002DBCCB /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E86FD922C39693002DBCCB /* Transaction+CoreDataClass.swift */; };
+		7296D2FF2344826F003219DF /* PostingEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7296D2FE2344826F003219DF /* PostingEntity.swift */; };
+		7296D3022344977F003219DF /* Posting+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7296D3012344977F003219DF /* Posting+CoreDataProperties.swift */; };
+		7296D3032344977F003219DF /* Posting+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7296D3002344977F003219DF /* Posting+CoreDataClass.swift */; };
+		7296D3052345A4E2003219DF /* postings.json in Resources */ = {isa = PBXBuildFile; fileRef = 7296D3042345A4E2003219DF /* postings.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +137,10 @@
 		09E86FD722C39693002DBCCB /* Person+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataClass.swift"; sourceTree = "<group>"; };
 		09E86FD822C39693002DBCCB /* Transaction+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		09E86FD922C39693002DBCCB /* Transaction+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7296D2FE2344826F003219DF /* PostingEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingEntity.swift; sourceTree = "<group>"; };
+		7296D3002344977F003219DF /* Posting+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Posting+CoreDataClass.swift"; path = "/projects_personal/SimpleArchitectureExample/SimpleArchitectureExample/SimpleArchitectureExample/Architecture/ModelLayer/DataLayer/CoreData/Entities/Posting+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		7296D3012344977F003219DF /* Posting+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Posting+CoreDataProperties.swift"; path = "/projects_personal/SimpleArchitectureExample/SimpleArchitectureExample/SimpleArchitectureExample/Architecture/ModelLayer/DataLayer/CoreData/Entities/Posting+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		7296D3042345A4E2003219DF /* postings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = postings.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +224,7 @@
 		0935FE2522B4BAEC001FB1F2 /* json */ = {
 			isa = PBXGroup;
 			children = (
+				7296D3042345A4E2003219DF /* postings.json */,
 				0935FE2622B4BAEC001FB1F2 /* transactions_3.json */,
 				0935FE2722B4BAED001FB1F2 /* transactions_2.json */,
 				0935FE2822B4BAED001FB1F2 /* transactions_1.json */,
@@ -361,6 +370,7 @@
 				09AF5EE922B74209001B3A75 /* Helpers */,
 				0945066A22B4B2C0006DD2F9 /* PersonEntity.swift */,
 				0945066B22B4B2C0006DD2F9 /* TransactionEntity.swift */,
+				7296D2FE2344826F003219DF /* PostingEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -472,6 +482,8 @@
 		09E86FD522C39693002DBCCB /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				7296D3002344977F003219DF /* Posting+CoreDataClass.swift */,
+				7296D3012344977F003219DF /* Posting+CoreDataProperties.swift */,
 				09E86FD622C39693002DBCCB /* Person+CoreDataProperties.swift */,
 				09E86FD722C39693002DBCCB /* Person+CoreDataClass.swift */,
 				09E86FD822C39693002DBCCB /* Transaction+CoreDataProperties.swift */,
@@ -594,6 +606,7 @@
 				0935FE2D22B4BAED001FB1F2 /* people.json in Resources */,
 				0935FE2A22B4BAED001FB1F2 /* transactions_3.json in Resources */,
 				0945066522B4B006006DD2F9 /* DetailViewController.xib in Resources */,
+				7296D3052345A4E2003219DF /* postings.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,15 +633,18 @@
 			files = (
 				09ABB5A322C233A600BC0773 /* CoreDataStack.swift in Sources */,
 				0945066322B4B006006DD2F9 /* DetailViewController.swift in Sources */,
+				7296D2FF2344826F003219DF /* PostingEntity.swift in Sources */,
 				09E86FDA22C39693002DBCCB /* Person+CoreDataProperties.swift in Sources */,
 				0945065D22B4AFFE006DD2F9 /* MainViewController.swift in Sources */,
 				09AF5EEB22B7421A001B3A75 /* PersonsGroupingHelper.swift in Sources */,
+				7296D3032344977F003219DF /* Posting+CoreDataClass.swift in Sources */,
 				09E86FDC22C39693002DBCCB /* Transaction+CoreDataProperties.swift in Sources */,
 				0945061422B4AB35006DD2F9 /* SimpleArchitectureExample.xcdatamodeld in Sources */,
 				0935FE2422B4B7BA001FB1F2 /* JSONFile.swift in Sources */,
 				09E86FDB22C39693002DBCCB /* Person+CoreDataClass.swift in Sources */,
 				0945065022B4AF41006DD2F9 /* ModelInteractor.swift in Sources */,
 				0945066422B4B006006DD2F9 /* DetailPresenter.swift in Sources */,
+				7296D3022344977F003219DF /* Posting+CoreDataProperties.swift in Sources */,
 				09ABB5A522C23B6000BC0773 /* CoreDataLayer.swift in Sources */,
 				0935FE2222B4B77E001FB1F2 /* MockNetworkInteractor.swift in Sources */,
 				0945065322B4AF41006DD2F9 /* DataInteractor.swift in Sources */,
